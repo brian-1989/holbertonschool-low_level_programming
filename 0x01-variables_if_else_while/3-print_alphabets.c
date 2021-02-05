@@ -1,5 +1,6 @@
 #include <stdlib.h>
-#include <time.h>
+#include <stdio.h>
+#include <ctype.h>
 /**
  * main - Entry point
  *
@@ -8,14 +9,15 @@
 int main(void)
 {
 	char i;
+	char m;
 
 	for (i = 'a' ; i <= 'z' ; i++)
 	{
 		putchar(i);
 	}
-	for (i = 'a' ; i <= 'z' ; i++)
+	for (m = 'a' ; m <= 'z' ; m++)
 	{
-		putchar(toupper(i));
+		putchar(toupper(m));
 	}
 	putchar('\n');
 	return (0);
