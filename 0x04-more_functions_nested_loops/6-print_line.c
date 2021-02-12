@@ -11,15 +11,16 @@ void print_line(int n)
 	int i, j;
 
 	i = 95;
-	if (n <= 0)
+	for (j = 0 ; j < n ; j++)
 	{
-		_putchar('\n');
-	}
-	else
-	{
-		for (j = 0 ; j < n ; j++)
+		if (n <= 0)
+		{
+			_putchar('\n');
+		}
+		else
 		{
 			_putchar(i);
 		}
 	}
+	_putchar('\n');
 }
