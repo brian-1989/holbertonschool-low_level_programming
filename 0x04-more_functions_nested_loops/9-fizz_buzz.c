@@ -18,10 +18,10 @@ int main(void)
 		{
 			if (i == 100)
 			{
-				printf("Bozz");
+				printf("Buzz");
 				break;
 			}
-			printf("Bozz ");
+			printf("Buzz ");
 		}
 		else if (i % 3 == 0)
 		{
