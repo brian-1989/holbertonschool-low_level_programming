@@ -10,7 +10,7 @@ void rev_string(char *s)
 {
 	int i, j, k, l, contador;
 
-	char cadena[98];
+	char cadena[450];
 
 	contador = 0;
 	l = 1;
