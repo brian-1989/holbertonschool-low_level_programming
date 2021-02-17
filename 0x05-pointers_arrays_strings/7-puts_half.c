@@ -26,7 +26,7 @@ void puts_half(char *str)
 	else
 	{
 		mitad_impar = ((contador - 1) / 2);
-		for (k = mitad_impar ; str[k] != '\0' ; k++)
+		for (k = mitad_impar + 1 ; str[k] != '\0' ; k++)
 		{
 			_putchar(str[k]);
 		}
