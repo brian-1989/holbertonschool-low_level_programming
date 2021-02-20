@@ -17,9 +17,10 @@ char *leet(char *cadena)
 	{
 		for (j = 0 ; cadena_minus[j] && cadena_mayus[j] != '\0'; j++)
 		{
-			if (cadena[i] == cadena_minus[j] && cadena_mayus[j])
+			if (cadena[i] == cadena_minus[j] || cadena[i] == cadena_mayus[j])
 			{
 				cadena[i] = cadena_enteros[j];
+				break;
 			}
 		}
 	}
