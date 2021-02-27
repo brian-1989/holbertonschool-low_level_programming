@@ -20,11 +20,11 @@ int main(int argc, char *argv[])
 				printf("Error\n");
 				return (1);
 			}
-			else if (atoi(argv[i]) < 0)
+			/*else if (atoi(argv[i]) < 0)
 			{
 				printf("Error\n");
 				return (1);
-			}
+			}*/
 			else
 			{
 				num = atoi(argv[i]);
