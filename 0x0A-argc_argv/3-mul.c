@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
 {
 	int j, num_1, num_2, total;
 
-	j=1;
+	j = 1;
 	if (argc == 3)
 	{
 		num_1 = atoi(argv[j]);
