@@ -11,6 +11,8 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	unsigned int i;
 	char *m;
 
+	if (nmemb == 0 || size == 0)
+		return (NULL);
 	m = malloc(sizeof(char) * nmemb);
 	if (m == NULL)
 		return (NULL);
