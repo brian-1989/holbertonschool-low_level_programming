@@ -28,12 +28,12 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	{
 		contador_s2++;
 	}
+	if (n >= contador_s2)
+		n = contador_s2;
 	total = contador_s1 + n + 1;
 	cadena = malloc(sizeof(char) * total);
 	if (cadena == NULL)
 		return (NULL);
-	if (n >= contador_s2)
-		return (s2);
 	for (k = 0 ; s1[k] != '\0' ; k++)
 	{
 		cadena[k] = s1[k];
