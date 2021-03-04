@@ -50,6 +50,6 @@ char *argstostr(int ac, char **av)
 		cadena[p] = '\n';
 		p++;
 	}
-	cadena[p] = '\0';
+	/* cadena[p] = '\0'; */
 	return (cadena);
 }
