@@ -9,8 +9,8 @@ void *malloc_checked(unsigned int b)
 {
 	void *address;
 
-	address = malloc(sizeof(b));
+	address = malloc(sizeof(char) * b);
 	if (address == NULL)
-		return (0);
+		exit (0);
 	return (address);
 }
