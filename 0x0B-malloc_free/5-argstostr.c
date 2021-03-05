@@ -26,7 +26,7 @@ int longitud(char *s)
  */
 char *argstostr(int ac, char **av)
 {
-	int i, j, h, k, p = 0, contador = 0;
+	int i, j, h, p = 0, contador = 1;
 	char *cadena;
 
 	if (ac == 0 || av == NULL)
@@ -40,10 +40,6 @@ char *argstostr(int ac, char **av)
 	cadena = malloc(sizeof(char) * (contador + ac));
 	if (cadena == NULL)
 	{
-		for (k = 0 ; k < (contador + ac) ; k++)
-		{
-			free(cadena);
-		}
 		return (NULL);
 	}
 	for (j = 0 ; j < ac ; j++)
