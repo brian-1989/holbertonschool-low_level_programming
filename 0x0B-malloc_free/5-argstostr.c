@@ -39,7 +39,10 @@ char *argstostr(int ac, char **av)
 	}
 	cadena = malloc(sizeof(char) * (contador + ac));
 	if (cadena == NULL)
+	{
+		free(cadena);
 		return (NULL);
+	}
 	for (j = 0 ; j < ac ; j++)
 	{
 		for (h = 0 ; h < longitud(av[j]); h++)
@@ -50,6 +53,6 @@ char *argstostr(int ac, char **av)
 		cadena[p] = '\n';
 		p++;
 	}
-	/* cadena[p] = '\0'; */
+	cadena[p] = '\0';
 	return (cadena);
 }
