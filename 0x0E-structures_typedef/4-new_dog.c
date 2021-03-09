@@ -47,7 +47,7 @@ int longitud(char *s)
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	unsigned int contador_name, contador_owner;
+	int contador_name, contador_owner;
 	dog_t *big_dog;
 
 	big_dog = malloc(sizeof(dog_t));
