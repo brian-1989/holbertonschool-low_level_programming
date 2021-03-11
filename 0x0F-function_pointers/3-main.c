@@ -5,6 +5,7 @@
  * main - Entreda de los argumentos a las funciones
  * @argc: Numeros de elementos
  * @argv: Arrays de caracteres
+ * Return: retorna a cero
  */
 int main(int argc, char **argv)
 {
@@ -31,5 +32,5 @@ int main(int argc, char **argv)
 	}
 	calc = p1(num1, num2);/*La función obtenida en p1*/
 	printf("%d\n", calc);/*Imprimir el valor de la operación*/
-	return calc;
+	return (0);
 }
