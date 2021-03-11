@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "3-calc.h"
 /**
  * main - Entreda de los argumentos a las funciones
@@ -24,7 +26,7 @@ int main(int argc, char **argv)
 		if (num2 == 0)/*Condición que sirve para la división y modulo*/
 		{
 			printf("Error\n");
-			exit(99);
+			exit(100);
 		}
 	}
 	calc = p1(num1, num2);/*La función obtenida en p1*/
