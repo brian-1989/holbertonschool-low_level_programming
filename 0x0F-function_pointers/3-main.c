@@ -10,7 +10,7 @@ int main(int argc, char **argv)
 	int calc, num1, num2;
 	char *operador;/*Declaración del puntero*/
 
-	if (argc > 5)/*Condición que me limita los elementos de argc*/
+	if (argc != 4)/*Condición que me limita los elementos de argc*/
 	{
 		printf("Error\n");
 		exit(98);
