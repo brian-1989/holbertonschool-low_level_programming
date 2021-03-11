@@ -19,10 +19,13 @@ int main(int argc, char **argv)
 	p1 = get_op_func(operador);/*Llamar función para evaluar el signo*/
 	num1 = atoi(argv[1]);/*Conveetir el elemento argv[1] en entero*/
 	num2 = atoi(argv[3]);/*Conveetir el elemento argv[2] en entero*/
-	if (num2 == 0)/*Condición que sirve para la división y modulo*/
+	if (*operador == '/' ||  *operador == '%')
 	{
-		printf("Error\n");
-		exit(99);
+		if (num2 == 0)/*Condición que sirve para la división y modulo*/
+		{
+			printf("Error\n");
+			exit(99);
+		}
 	}
 	calc = p1(num1, num2);/*La función obtenida en p1*/
 	printf("%d\n", calc);/*Imprimir el valor de la operación*/
