@@ -12,9 +12,9 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	unsigned int i, num;
 	va_list parametros;
 
+	va_start(parametros, n);
 	if (separator != NULL)
 	{
-		va_start(parametros, n);
 		for (i = 0 ; i < n ; i++)
 		{
 			num = va_arg(parametros, int);
