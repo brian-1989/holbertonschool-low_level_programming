@@ -14,7 +14,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	listint_t *temp, *insertar, *recorrer;
 
 	insertar = malloc(sizeof(listint_t) * 1);
-	if (*head == NULL)
+	if (insertar == NULL)
 		return (NULL);
 	temp = *head;
 	recorrer = *head;
@@ -41,5 +41,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		i++;
 		}
 	}
+	else
+		return NULL;
 	return (insertar);
 }
