@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include "lists.h"
 /**
  * insert_nodeint_at_index - add the node in the given index
@@ -14,11 +13,16 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	unsigned int i = 0, j;
 	listint_t *temp, *insertar, *recorrer;
 
-	if (!head)
-		return (NULL);
 	insertar = malloc(sizeof(listint_t));
 	if (insertar == NULL)
 		return (NULL);
+	if (head == NULL || *head == NULL)
+	{
+		*head = insertar;
+		insertar->n = n;
+		insertar->next = NULL;
+		return (insertar);
+	}
 	temp = *head;
 	recorrer = *head;
 	for (j = 0 ; recorrer != NULL; j++)
@@ -27,25 +31,23 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	{
 		while (temp != NULL)
 		{
-		if (idx == 0)
-		{
-			insertar->n = n;
-			insertar->next = *head;
-			*head = insertar;
-			break;
+			if (idx == 0)
+			{
+				insertar->n = n;
+				insertar->next = *head;
+				*head = insertar;
+				break;
+			}
+			if (i == idx - 1)
+			{
+				insertar->n = n;
+				insertar->next = temp->next;
+				temp->next = insertar;
+				break;
+			}
+			temp = temp->next;
+			i++;
 		}
-		if (i == idx - 1)
-		{
-			insertar->n = n;
-			insertar->next = temp->next;
-			temp->next = insertar;
-			break;
-		}
-		temp = temp->next;
-		i++;
-		}
-		return (insertar);
 	}
-	else
-		return (NULL);
+	return (insertar);
 }
