@@ -20,7 +20,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	recorrer = *head;
 	for (j = 0 ; recorrer != NULL; j++)
 		recorrer = recorrer->next;
-	if (idx < j)
+	if (idx <= j)
 	{
 		while (temp != NULL)
 		{
@@ -36,6 +36,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 			insertar->n = n;
 			insertar->next = temp->next;
 			temp->next = insertar;
+			break;
 		}
 		temp = temp->next;
 		i++;
