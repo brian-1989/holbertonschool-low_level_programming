@@ -19,7 +19,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (lectura == -1)
 		return (0);
 	escritura = write(STDOUT_FILENO, buf, letters);
-	if (escritura == -1)
+	if (escritura == -1 || letters > SSIZE_MAX)
 		return (0);
 	close(abrir);
 	return (lectura);
