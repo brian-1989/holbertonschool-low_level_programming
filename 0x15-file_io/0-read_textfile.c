@@ -8,7 +8,7 @@
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int abrir, lectura, escritura;
-	char *buf[2000];
+	char *buf[1<<15];
 
 	if (filename == NULL)
 		return (0);
