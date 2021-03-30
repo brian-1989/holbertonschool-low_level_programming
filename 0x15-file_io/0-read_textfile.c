@@ -10,19 +10,19 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	int abrir, lectura, escritura;
 	char *buf;
 
-	if (filename == NULL)
-		return (0);
-	buf = malloc(sizeof(char) * letters);
-	if (buf == NULL)
+	if (filename == NULL || letters > SSIZE_MAX)
 		return (0);
 	abrir = open(filename, O_RDONLY);
 	if (abrir == -1)
+		return (0);
+	buf = malloc(sizeof(char) * letters);
+	if (buf == NULL)
 		return (0);
 	lectura = read(abrir, buf, letters);
 	if (lectura == -1)
 		return (0);
 	escritura = write(STDOUT_FILENO, buf, letters);
-	if (escritura == -1 || letters > SSIZE_MAX)
+	if (escritura == -1)
 		return (0);
 	close(abrir);
 	free(buf);
