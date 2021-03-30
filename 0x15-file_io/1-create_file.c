@@ -23,17 +23,19 @@ int longitud(char *s)
  */
 int create_file(const char *filename, char *text_content)
 {
-	unsigned int crear, len;
+	int crear, len, escritura;
 
 	if (filename != NULL)
 	{
+		crear = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
 		if (text_content == NULL)
 			return (1);
-		crear = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
-		if (crear)
+		if (crear != -1)
 		{
 			len = longitud(text_content);
-			write(crear, text_content, len);
+			escritura = write(crear, text_content, len);
+			if (escritura == -1)
+				return (-1);
 			return (1);
 		}
 		else
