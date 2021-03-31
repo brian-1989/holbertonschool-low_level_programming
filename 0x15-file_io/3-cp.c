@@ -23,12 +23,6 @@ void create_and_write(char *buf, const char *file_to, int _r)
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 			exit(99);
 		}
-		_clo = close(_c);
-		if (_clo == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't close fd %d", _c);
-			exit(100);
-		}
 	}
 	else
 	{
