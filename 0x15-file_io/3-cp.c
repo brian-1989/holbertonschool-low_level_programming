@@ -14,25 +14,25 @@ void create_and_write(char *buf, const char *file_to, int _r)
 		_c = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
 		if (_c == -1)
 		{
-			dprintf(2, "Error: Can't write to %s\n", file_to);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 			exit(99);
 		}
 		_w = write(_c, buf, _r);
 		if (_w == -1)
 		{
-			dprintf(2, "Error: Can't write to %s\n", file_to);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 			exit(99);
 		}
 		_clo = close(_c);
 		if (_clo == -1)
 		{
-			dprintf(2, "Error: Can't close fd %d", _c);
+			dprintf(STDERR_FILENO, "Error: Can't close fd %d", _c);
 			exit(100);
 		}
 	}
 	else
 	{
-		dprintf(2, "Error: Can't write to %s\n", file_to);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 		exit(99);
 	}
 }
@@ -51,7 +51,7 @@ void open_and_read(const char *file_from, const char *file_to)
 		_o = open(file_from, O_RDONLY);
 		if (_o == -1)
 		{
-			dprintf(2, "Error: Can't read from file %s\n", file_from);
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 			exit(98);
 		}
 		buf = malloc(sizeof(char) * 1024);
@@ -60,20 +60,20 @@ void open_and_read(const char *file_from, const char *file_to)
 		_r = read(_o, buf, INT_MAX);
 		if (_r == -1)
 		{
-			dprintf(2, "Error: Can't read from file %s\n", file_from);
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 			exit(98);
 		}
 		_clo = close(_o);
 		if (_clo == -1)
 		{
-			dprintf(2, "Error: Can't close fd %d", _o);
+			dprintf(STDERR_FILENO, "Error: Can't close fd %d", _o);
 			exit(100);
 		}
 		create_and_write(buf, file_to, _r);
 	}
 	else
 	{
-		dprintf(2, "Error: Can't read from file %s\n", file_from);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
 }
@@ -88,7 +88,7 @@ int main(int argc, char **argv)
 
 	if (argc != 3)
 	{
-		dprintf(1, "Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 	open_and_read(argv[1], argv[2]);
