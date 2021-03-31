@@ -29,7 +29,7 @@ void open_and_read(char *file_from, char *file_to)
 		}
 		if (i < 0)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't read to %s\n", file_from);
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 			exit(98);
 		}
 		_clo2 = close(_c);
