@@ -59,7 +59,7 @@ void open_and_read(const char *file_from, const char *file_to)
 		{
 			close(_o);
 			return;
-		}	
+		}
 		_r = read(_o, buf, INT_MAX);
 		if (_r == -1)
 		{
