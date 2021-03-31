@@ -27,7 +27,7 @@ void open_and_read(char *file_from, char *file_to)
 				exit(99);
 			}
 		}
-		if (i <= -1)
+		if (i < 0)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read to %s\n", file_from);
 			exit(98);
