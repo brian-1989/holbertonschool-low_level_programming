@@ -56,7 +56,10 @@ void open_and_read(const char *file_from, const char *file_to)
 		}
 		buf = malloc(sizeof(char) * 1024);
 		if (buf == NULL)
+		{
+			close(_o);
 			return;
+		}	
 		_r = read(_o, buf, INT_MAX);
 		if (_r == -1)
 		{
@@ -94,3 +97,4 @@ int main(int argc, char **argv)
 	open_and_read(argv[1], argv[2]);
 	return (0);
 }
+
