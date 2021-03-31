@@ -1,50 +1,13 @@
 #include "holberton.h"
 /**
- * create_and_write - create a file and write inside of a file.
- * @buf: pointer that stores the text that is going to be written.
- * @file_to: pointers at name of the file.
- * @_r: length of the texto read.
- */
-void create_and_write(char *buf, const char *file_to, int _r)
-{
-	int _c, _w, _clo;
-
-	if (file_to != NULL)
-	{
-		_c = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
-		if (_c == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
-			exit(99);
-		}
-		_w = write(_c, buf, _r);
-		if (_w == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
-			exit(99);
-		}
-		_clo = close(_c);
-		if (_clo == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't close fd %d", _c);
-			exit(100);
-		}
-	}
-	else
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
-		exit(99);
-	}
-}
-/**
  * open_and_read - open a file and read the text inside of a file.
  * @file_from: pointer at first file.
  * @file_to: pointer at second file.
  */
-void open_and_read(const char *file_from, const char *file_to)
+void open_and_read(char *file_from, char *file_to)
 {
-	int _o, _r, _clo;
-	char *buf;
+	int _o, _clo1, _clo2, _c, i;
+	char buf[BUFSIZ];
 
 	if (file_from != NULL)
 	{
@@ -54,30 +17,32 @@ void open_and_read(const char *file_from, const char *file_to)
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 			exit(98);
 		}
-		buf = malloc(sizeof(char) * 1024);
-		if (buf == NULL)
+		_c = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
+		while ((i = read(_o, buf, BUFSIZ)) > 0)
 		{
-			close(_o);
-			return;
+			if (write(_c, buf, i) != i)
+			{
+				dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
+				close(_c);
+				exit(99);
+			}
 		}
-		_r = read(_o, buf, INT_MAX);
-		if (_r == -1)
+		if (i <= -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
-			exit(98);
+			dprintf(STDERR_FILENO, "Error: Can't read to %s\n", file_from);
 		}
-		_clo = close(_o);
-		if (_clo == -1)
+		_clo2 = close(_c);
+		_clo1 = close(_o);
+		if (_clo1 == -1 || _clo2 == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't close fd %d", _o);
+			if (_clo1 == -1)
+			{
+				dprintf(STDERR_FILENO, "Error: Can't close fd %d", _o);
+				exit(100);
+			}
+			dprintf(STDERR_FILENO, "Error: Can't close fd %d", _c);
 			exit(100);
 		}
-		create_and_write(buf, file_to, _r);
-	}
-	else
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
-		exit(98);
 	}
 }
 /**
@@ -97,4 +62,3 @@ int main(int argc, char **argv)
 	open_and_read(argv[1], argv[2]);
 	return (0);
 }
-
