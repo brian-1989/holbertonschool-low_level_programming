@@ -8,14 +8,11 @@
  */
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-	unsigned int i = 0, j = 0;
-	dlistint_t *temp, *_delete, *travel, *after;
+	unsigned int i = 0;
+	dlistint_t *temp, *_delete, *after;
 
-	temp = *head, travel = *head;
-	/* Cycle to travel the list */
-	for ( ; travel != NULL; j++)
-		travel = travel->next;
-	if (index < j)
+	temp = *head;
+	if (*head != NULL)
 	{
 		while (temp != NULL)
 		{
