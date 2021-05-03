@@ -24,29 +24,25 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		/* condicition to the first node */
 		if (index == 0)
 		{
-			temp = *head;
-			*head = (*head)->next;
+			temp = *head, *head = (*head)->next;
 			if (*head == NULL)
 			{
 				free(temp);
 				return (-1);
 			}	
-			(*head)->prev = NULL;
-			free(temp);
+			(*head)->prev = NULL, free(temp);
 			return (1);
 		}
 		if (i == index - 1)
 		{
-			_delete = temp->next, after = _delete->next;
-			temp->next = after;
+			_delete = temp->next, after = _delete->next, temp->next = after;
 			/* condicition when is the last node */
 			if (after == NULL)
 			{
-			free(_delete);
-			return (1);
+				free(_delete);
+				return (1);
 			}
-			after->prev = temp;
-			free(_delete);
+			after->prev = temp, free(_delete);
 			return (1);
 		}
 		temp = temp->next, i++;
