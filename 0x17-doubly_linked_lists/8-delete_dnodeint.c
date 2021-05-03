@@ -24,10 +24,15 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		/* condicition to the first node */
 		if (index == 0)
 		{
+			temp = *head;
 			*head = (*head)->next;
 			if (*head == NULL)
+			{
+				free(temp);
 				return (-1);
+			}	
 			(*head)->prev = NULL;
+			free(temp);
 			return (1);
 		}
 		if (i == index - 1)
