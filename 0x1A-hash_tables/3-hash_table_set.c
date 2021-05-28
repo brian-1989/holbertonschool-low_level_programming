@@ -13,7 +13,10 @@ hash_node_t *add_node(hash_node_t *head, const char *key, const char *value)
 
 	new_node = malloc(sizeof(hash_node_t) * 1);
 	if (new_node == NULL)
+	{
+		free(new_node);
 		return (NULL);
+	}
 	new_node->key = strdup(key);
 	if (value == NULL)
 		new_node->value = NULL;
