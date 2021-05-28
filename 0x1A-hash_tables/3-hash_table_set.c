@@ -36,7 +36,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long int i = 0, index = 0;
 	hash_node_t *new_node = NULL;
 
-	if (ht == NULL || key == NULL)
+	if (ht == NULL || key == NULL || !value)
 		return (0);
 	index = key_index((const unsigned char *)key, ht->size);
 	while (i < ht->size)
