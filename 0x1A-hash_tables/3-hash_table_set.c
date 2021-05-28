@@ -48,13 +48,14 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			{
 				if (strcmp(key, temp->key) == 0)
 				{
-					free(temp->value);
-					new_node = add_node(ht->array[i], key, value);
-					ht->array[i] = new_node;
+					temp->value = strdup(value);
 					return (1);
 				}
 				temp = temp->next;
 			}
+			new_node = add_node(ht->array[i], key, value);
+			ht->array[i] = new_node;
+			return (1);
 		}
 		i++;
 	}
