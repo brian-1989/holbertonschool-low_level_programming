@@ -1,0 +1,22 @@
+# Create new variable with CFLAGS
+CC= gcc
+SRC= main.c holberton.c
+OBJ= $(SRC:.c=.o)
+NAME= holberton
+RM= rm -f
+CFLAGS= -Wall -Werror -Wextra -pedantic
+
+all: $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+clean:
+	rm -f *~ $(NAME)
+oclean:
+	rm -f $(OBJ)
+fclean:
+	rm -f *~ $(NAME)
+	rm -f $(OBJ)
+re:
+	rm -f main.o holberton.o
+	gcc    -c -o main.o main.c
+	gcc    -c -o holberton.o holberton.c
+	gcc main.o holberton.o -o holberton
