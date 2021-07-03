@@ -1,0 +1,22 @@
+# Created new rules with: clean, oclean, fclean and re.
+# Created new variable with RM
+CC= gcc
+SRC= main.c holberton.c
+OBJ= $(SRC:.c=.o)
+NAME= holberton
+RM= 
+
+all: $(SRC) $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+clean:
+	rm -f *~ $(NAME)
+oclean:
+	rm -f $(OBJ)
+fclean:
+	rm -f *~ $(NAME)
+	rm -f $(OBJ)
+re:
+	rm -f main.o holberton.o
+	gcc    -c -o main.o main.c
+	gcc    -c -o holberton.o holberton.c
+	gcc main.o holberton.o -o holberton
