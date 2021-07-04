@@ -9,14 +9,14 @@ RM= rm -f
 all: $(SRC) $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 clean:
-	rm -f *~ $(NAME)
+	$(RM) *~ $(NAME)
 oclean:
-	rm -f $(OBJ)
+	$(RM) $(OBJ)
 fclean:
-	rm -f *~ $(NAME)
-	rm -f $(OBJ)
+	$(RM) *~ $(NAME)
+	$(RM) $(OBJ)
 re:
-	rm -f main.o holberton.o
-	gcc    -c -o main.o main.c
-	gcc    -c -o holberton.o holberton.c
-	gcc main.o holberton.o -o holberton
+	$(RM) $(OBJ)
+	$(CC)    -c -o main.o main.c
+	$(CC)    -c -o holberton.o holberton.c
+	$(CC) $(OBJ) -o $(NAME)
