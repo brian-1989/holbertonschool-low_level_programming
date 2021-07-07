@@ -18,15 +18,15 @@ def island_perimeter(grid):
         for j in range(0, len(grid[i])):
             if grid[i][j] == 1:
                 # condition to see if up is Zero
-                if i is 0 or grid[i - 1][j] is 0:
+                if i == 0 or grid[i - 1][j] == 0:
                     perimeter_island += 1
                 # condition to see if at left is Zero
-                if j is 0 or grid[i][j - 1] is 0:
+                if j == 0 or grid[i][j - 1] == 0:
                     perimeter_island += 1
                 # condition to see if down is Zero
-                if i is len(grid) or grid[i + 1][j] is 0:
+                if i == len(grid) or grid[i + 1][j] == 0:
                     perimeter_island += 1
                 # condition to see if at right is Zero
-                if j is len(grid[0]) or grid[i][j + 1] is 0:
+                if j == len(grid[0]) or grid[i][j + 1] == 0:
                     perimeter_island += 1
     return perimeter_island
