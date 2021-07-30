@@ -2,6 +2,10 @@
 
 <hr>
 
+![Hello World](https://tutorialsbookmarks.com/wp-content/uploads/2019/09/Hello-World-Program-code-in-C-696x392-1.png)
+
+<hr>
+
 ## Learning Objectives
 * Why C programming is awesome
 * Who invented C
