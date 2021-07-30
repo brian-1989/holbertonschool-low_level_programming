@@ -14,3 +14,9 @@
 * What is the official Holberton C coding style and how to check your code with betty-style
 * How to find the right header to include in your source code when using a standard library function
 * How does the main function influence the return value of the program
+
+<hr>
+
+## Tasks
+* [0. Preprocessor](https://github.com/brian-1989/holbertonschool-low_level_programming/blob/main/0x00-hello_world/0-preprocessor)
+Write a script that runs a C file through the preprocessor and save the result into another file.
