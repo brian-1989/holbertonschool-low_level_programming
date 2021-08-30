@@ -20,6 +20,7 @@ int binary_search(int *array, size_t size, int value)
 	{
 		printf("Searching in array: ");
 		left_2 = left;
+		/* This loop is to print the array and the part of array, when divided */
 		while (left_2 <= right)
 		{
 			if (left_2 == right)
