@@ -16,6 +16,8 @@ int binary_search(int *array, size_t size, int value)
 	int right = size - 1;
 	int half_array = 0;
 
+	if (array == NULL)
+		return (-1);
 	while (left <= right)
 	{
 		printf("Searching in array: ");
